@@ -5,12 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <title>SrRaid ANIME</title>
-    <meta name="description" content="Explora los estrenos de temporada, guarda tus favoritos y únete a la comunidad de SrRaid ANIME. Tu portal premium de noticias y cultura otaku.">
-    <meta property="og:title" content="SrRaid ANIME">
-    <meta property="og:description" content="Datos en tiempo real, buscador avanzado y comunidad activa.">
-    <meta property="og:image" content="https://images.unsplash.com/photo-1541562232579-512a21360020?q=80&w=1000">
+    <meta name="description" content="Explora los estrenos de temporada, guarda tus favoritos y únete a la comunidad de SrRaid ANIME.">
     
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⛩️</text></svg>">
+    <link rel="icon" type="image/png" href="assets/RoxyFoto.png">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
@@ -39,8 +36,8 @@
 
     <div id="loader">
         <div class="flex flex-col items-center gap-6">
-            <div class="spinner-pro"></div>
-            <p class="text-brand font-black uppercase tracking-[0.4em] text-[10px] animate-pulse">Iniciando SrRaid...</p>
+            <img src="assets/RoxyFoto.png" class="w-20 h-20 rounded-full animate-bounce border-4 border-brand/50 shadow-[0_0_30px_rgba(99,102,241,0.5)]">
+            <p class="text-brand font-black uppercase tracking-[0.4em] text-[10px] animate-pulse">Canalizando Magia SrRaid...</p>
         </div>
     </div>
 
@@ -51,73 +48,85 @@
         <div class="w-full max-w-3xl">
             <input type="text" id="main-search" placeholder="Escribe el nombre de un anime..." 
                 class="w-full bg-transparent border-b-4 border-slate-800 text-3xl md:text-5xl font-black text-white focus:outline-none focus:border-brand transition-all pb-4">
-            <p class="text-slate-500 mt-4 font-bold uppercase tracking-widest text-sm text-center">Presiona Enter para buscar en SrRaid Database</p>
         </div>
     </div>
 
     <header class="fixed top-0 w-full z-[100] bg-dark/80 backdrop-blur-xl border-b border-slate-800 transition-all duration-300">
         <div class="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
-            <div class="flex items-center gap-2 cursor-pointer group" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
-                <div class="w-10 h-10 bg-brand rounded-xl flex items-center justify-center font-black text-white shadow-lg shadow-brand/20 group-hover:rotate-12 transition">SR</div>
-                <span class="text-xl font-extrabold tracking-tight text-white uppercase">SrRaid<span class="text-brand"> ANIME</span></span>
+            <div class="flex items-center gap-3 cursor-pointer group" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+                <div class="relative">
+                    <div class="absolute -inset-1 bg-brand rounded-full blur opacity-25 group-hover:opacity-60 transition"></div>
+                    <img src="assets/RoxyFoto.png" class="relative w-10 h-10 rounded-full border-2 border-white/10 object-cover shadow-lg group-hover:rotate-12 transition duration-500">
+                </div>
+                <span class="text-xl font-black tracking-tighter text-white uppercase italic">SrRaid<span class="text-brand">ANIME</span></span>
             </div>
 
             <nav class="hidden lg:block">
                 <ul class="flex gap-8 text-xs font-black tracking-widest uppercase text-slate-400">
                     <li><a href="#inicio" class="hover:text-white transition">Inicio</a></li>
                     <li><a href="#estrenos" class="hover:text-white transition">Temporada</a></li>
-                    <li><a href="#favoritos" class="hover:text-white transition flex items-center gap-2">Mi Lista <span id="fav-count" class="bg-brand text-white text-[10px] px-1.5 py-0.5 rounded-full">0</span></a></li>
+                    <li><a href="#favoritos" class="hover:text-white transition flex items-center gap-2">Mi Lista <span id="fav-count" class="bg-brand text-white text-[10px] px-1.5 py-0.5 rounded-full shadow-lg shadow-brand/40">0</span></a></li>
                     <li><a href="#comunidad" class="hover:text-white transition">Comunidad</a></li>
                 </ul>
             </nav>
 
             <div class="flex items-center gap-4">
-                <button onclick="toggleSearch()" class="bg-slate-800 hover:bg-slate-700 p-2.5 rounded-xl transition text-white shadow-lg">
+                <button onclick="toggleSearch()" class="bg-slate-800 hover:bg-slate-700 p-2.5 rounded-xl transition text-white shadow-lg border border-white/5">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
                 </button>
                 
                 <div id="auth-section">
-                    <button id="btn-login" class="bg-brand text-white px-5 py-2.5 rounded-xl text-xs font-black hover:scale-105 transition shadow-lg shadow-brand/25 uppercase tracking-widest">
+                    <button id="btn-login" class="bg-brand text-white px-6 py-2.5 rounded-xl text-[10px] font-black hover:scale-105 transition shadow-lg shadow-brand/25 uppercase tracking-widest">
                         Entrar
                     </button>
-                    <div id="user-profile" class="hidden flex items-center gap-3 bg-slate-900/50 p-1 rounded-2xl border border-white/5 pr-4">
-                        <img id="user-photo" src="" class="w-8 h-8 rounded-lg object-cover">
-                        <button id="btn-logout" class="text-[10px] font-black uppercase text-slate-500 hover:text-white transition">Salir</button>
+                    <div id="user-profile" class="hidden flex items-center gap-3 bg-slate-900/50 p-1 rounded-2xl border border-white/5 pr-4 group">
+                        <img id="user-photo" src="" class="w-8 h-8 rounded-lg object-cover group-hover:ring-2 ring-brand transition-all">
+                        <button id="btn-logout" class="text-[9px] font-black uppercase text-slate-500 hover:text-white transition">Salir</button>
                     </div>
                 </div>
             </div>
         </div>
     </header>
 
-    <section id="inicio" class="pt-40 pb-20 px-6 max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
-        <div class="text-center lg:text-left">
-            <div class="flex items-center gap-2 justify-center lg:justify-start mb-6">
-                <span class="px-4 py-1.5 rounded-full bg-brand/10 text-brand text-[10px] font-black uppercase tracking-[0.2em] border border-brand/20">Sincronizado v4.2</span>
-                <span class="px-4 py-1.5 rounded-full bg-green-500/10 text-green-400 text-[10px] font-black uppercase tracking-[0.2em] border border-green-500/20">Online</span>
-            </div>
-            <h1 class="text-6xl lg:text-8xl font-black text-white leading-[0.9] mb-8 tracking-tighter uppercase">
-                Domina tu <br> <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand to-cyan-400">Camino Otaku.</span>
-            </h1>
-            <p class="text-slate-400 text-lg mb-10 max-w-md mx-auto lg:mx-0 font-medium leading-relaxed">
-                SrRaid ANIME centraliza los datos más precisos de MyAnimeList con una interfaz diseñada para verdaderos fans.
-            </p>
-            <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                <button onclick="toggleSearch()" class="bg-white text-dark px-10 py-5 rounded-2xl font-black hover:bg-brand hover:text-white transition-all shadow-2xl flex items-center justify-center gap-2 uppercase text-xs tracking-widest">
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
-                    Buscar Anime
-                </button>
-                <a href="#estrenos" class="border border-slate-700 px-10 py-5 rounded-2xl font-black hover:bg-slate-800 transition-all text-white uppercase text-xs tracking-widest flex items-center justify-center">Ver Estrenos</a>
-            </div>
+    <section id="inicio" class="relative pt-48 pb-32 px-6 overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="assets/RudeusBanner.png" class="w-full h-full object-cover opacity-30 scale-105 hover:scale-100 transition duration-1000">
+            <div class="absolute inset-0 bg-gradient-to-b from-dark/20 via-dark to-dark"></div>
         </div>
 
-        <div class="relative hidden lg:block group cursor-pointer" onclick="openSoloLeveling()">
-            <div class="absolute -inset-10 bg-brand/30 blur-[100px] rounded-full group-hover:bg-brand/40 transition duration-700"></div>
-            <div class="relative rounded-[3rem] border border-slate-800 shadow-2xl overflow-hidden aspect-[4/5] w-full max-w-md mx-auto transform rotate-2 hover:rotate-0 transition duration-500">
-                <img src="https://images.unsplash.com/photo-1541562232579-512a21360020?q=80&w=1000" class="w-full h-full object-cover">
-                <div class="absolute bottom-10 left-10 right-10 p-6 bg-dark/60 backdrop-blur-md rounded-3xl border border-white/10 group-hover:bg-brand/80 transition-colors">
-                    <p class="text-brand group-hover:text-white font-black text-[10px] uppercase tracking-widest mb-1">Anime del Mes</p>
-                    <h4 class="text-white font-bold text-xl">Solo Leveling S2</h4>
-                    <p class="text-white/60 text-[10px] font-bold uppercase mt-2 group-hover:text-white transition">Hacer clic para ver detalles</p>
+        <div class="relative z-10 max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center text-center lg:text-left">
+            <div>
+                <div class="inline-flex items-center gap-2 mb-6 px-4 py-1.5 rounded-full bg-brand/10 border border-brand/20">
+                    <span class="w-2 h-2 bg-brand rounded-full animate-ping"></span>
+                    <span class="text-brand text-[10px] font-black uppercase tracking-[0.2em]">Magia de Estreno v4.2</span>
+                </div>
+                <h1 class="text-6xl lg:text-8xl font-black text-white leading-[0.85] mb-8 tracking-tighter uppercase italic">
+                    Domina tu <br> <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand via-cyan-400 to-indigo-500">Mundo Anime.</span>
+                </h1>
+                <p class="text-slate-400 text-lg mb-10 max-w-md mx-auto lg:mx-0 font-medium leading-relaxed">
+                    SrRaid ANIME: La base de datos definitiva impulsada por fans para los elegidos del Isekai.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                    <button onclick="toggleSearch()" class="bg-white text-dark px-10 py-5 rounded-2xl font-black hover:bg-brand hover:text-white transition-all shadow-2xl uppercase text-[10px] tracking-widest">
+                        Buscar Anime
+                    </button>
+                    <a href="#estrenos" class="bg-slate-900/50 border border-slate-700 px-10 py-5 rounded-2xl font-black hover:bg-slate-800 transition-all text-white uppercase text-[10px] tracking-widest backdrop-blur-sm">Temporada</a>
+                </div>
+            </div>
+
+            <div class="relative hidden lg:block group cursor-pointer" onclick="openSoloLeveling()">
+                <div class="absolute -inset-10 bg-brand/20 blur-[120px] rounded-full group-hover:bg-brand/30 transition duration-700"></div>
+                <div class="relative rounded-[3.5rem] border border-white/5 shadow-2xl overflow-hidden aspect-[4/5] w-full max-w-sm mx-auto transform rotate-3 hover:rotate-0 transition duration-500 group">
+                    <img src="assets/ErisPerfil.png" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-dark/90 via-transparent to-transparent"></div>
+                    <div class="absolute bottom-10 left-10 right-10 p-6 bg-dark/60 backdrop-blur-xl rounded-3xl border border-white/10 group-hover:bg-brand/90 transition-all duration-500">
+                        <p class="text-brand group-hover:text-white font-black text-[9px] uppercase tracking-widest mb-1">Candidata del Mes</p>
+                        <h4 class="text-white font-black text-2xl uppercase italic tracking-tighter leading-none">Solo Leveling S2</h4>
+                        <div class="mt-3 flex items-center justify-between">
+                            <span class="text-white/50 group-hover:text-white/80 text-[10px] font-bold">VER DETALLES</span>
+                            <span class="text-brand group-hover:text-white animate-pulse">→</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -127,24 +136,25 @@
         <div class="flex flex-col md:flex-row justify-between items-center mb-16 gap-8">
             <div class="text-center md:text-left">
                 <h2 class="text-5xl font-black text-white tracking-tighter italic uppercase">Temporada Actual</h2>
-                <p class="text-slate-500 font-bold uppercase tracking-widest text-xs mt-2">Explora lo más visto este 2026</p>
+                <div class="h-1 w-20 bg-brand mt-2 mx-auto md:mx-0"></div>
             </div>
             
-            <div class="flex gap-2 bg-slate-900/50 p-1.5 rounded-2xl border border-slate-800 overflow-x-auto max-w-full">
-                <button class="filter-btn active bg-brand text-white px-6 py-2.5 rounded-xl text-[10px] font-black uppercase tracking-widest whitespace-nowrap" data-genre="all">Todos</button>
-                <button class="filter-btn text-slate-400 hover:text-white px-6 py-2.5 rounded-xl text-[10px] font-black uppercase tracking-widest whitespace-nowrap" data-genre="Action">Acción</button>
-                <button class="filter-btn text-slate-400 hover:text-white px-6 py-2.5 rounded-xl text-[10px] font-black uppercase tracking-widest whitespace-nowrap" data-genre="Comedy">Comedia</button>
-                <button class="filter-btn text-slate-400 hover:text-white px-6 py-2.5 rounded-xl text-[10px] font-black uppercase tracking-widest whitespace-nowrap" data-genre="Drama">Drama</button>
+            <div class="flex gap-2 bg-slate-900/50 p-2 rounded-2xl border border-slate-800 overflow-x-auto max-w-full no-scrollbar backdrop-blur-sm">
+                <button class="filter-btn active bg-brand text-white px-6 py-2.5 rounded-xl text-[9px] font-black uppercase tracking-widest whitespace-nowrap" data-genre="all">Todos</button>
+                <button class="filter-btn text-slate-400 hover:text-white px-6 py-2.5 rounded-xl text-[9px] font-black uppercase tracking-widest whitespace-nowrap" data-genre="Action">Acción</button>
+                <button class="filter-btn text-slate-400 hover:text-white px-6 py-2.5 rounded-xl text-[9px] font-black uppercase tracking-widest whitespace-nowrap" data-genre="Comedy">Comedia</button>
+                <button class="filter-btn text-slate-400 hover:text-white px-6 py-2.5 rounded-xl text-[9px] font-black uppercase tracking-widest whitespace-nowrap" data-genre="Drama">Drama</button>
             </div>
         </div>
         <div id="anime-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 min-h-[600px]"></div>
     </main>
 
-    <section id="favoritos" class="py-20 bg-slate-900/30 border-y border-slate-800 px-6 hidden">
+    <section id="favoritos" class="py-20 bg-slate-950/50 border-y border-white/5 px-6 hidden transition-all duration-500">
         <div class="max-w-7xl mx-auto">
-            <h2 class="text-3xl font-black text-white mb-10 tracking-tighter uppercase italic flex items-center gap-3">
-                <span class="text-red-500 text-4xl">❤</span> Mi Lista SrRaid
-            </h2>
+            <div class="flex items-center gap-4 mb-10">
+                <h2 class="text-3xl font-black text-white tracking-tighter uppercase italic">Mi Gremio</h2>
+                <div class="flex-1 h-px bg-white/5"></div>
+            </div>
             <div id="favorites-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6"></div>
         </div>
     </section>
@@ -152,47 +162,52 @@
     <section id="comunidad" class="py-24 px-6 max-w-7xl mx-auto">
         <div class="grid lg:grid-cols-3 gap-12">
             <div class="col-span-1 lg:col-span-2 space-y-8">
-                <h3 class="text-3xl font-black text-white uppercase italic tracking-tighter">Últimas Noticias</h3>
-                <div class="group cursor-pointer flex gap-6 bg-slate-900/50 p-6 rounded-[2rem] border border-slate-800 hover:border-brand/50 transition">
-                    <div class="w-32 h-32 flex-shrink-0 rounded-2xl overflow-hidden bg-slate-800">
-                        <img src="https://images.unsplash.com/photo-1618336753974-aae8e04506aa?q=80&w=400" class="w-full h-full object-cover group-hover:scale-110 transition">
-                    </div>
-                    <div>
-                        <span class="text-brand text-[10px] font-black uppercase">Tendencia</span>
-                        <h4 class="text-white font-bold text-xl mt-1">Nuevo Trailer de "Bleach: TYBW Part 4"</h4>
-                        <p class="text-slate-500 text-sm mt-2 line-clamp-2">Studio Pierrot ha lanzado el avance final para el cierre de la guerra...</p>
+                <h3 class="text-3xl font-black text-white uppercase italic tracking-tighter flex items-center gap-3">
+                    Últimas Noticias <span class="text-brand text-xl">✨</span>
+                </h3>
+                <div class="group cursor-pointer relative bg-slate-900/40 rounded-[2.5rem] border border-white/5 hover:border-brand/50 transition-all overflow-hidden p-1">
+                    <div class="flex flex-col md:flex-row gap-6 p-6 relative z-10">
+                        <div class="w-full md:w-48 h-48 flex-shrink-0 rounded-2xl overflow-hidden shadow-2xl">
+                            <img src="assets/SylphietteBanner.jpg" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                        </div>
+                        <div class="flex flex-col justify-center">
+                            <span class="inline-block px-3 py-1 bg-brand/20 text-brand text-[8px] font-black uppercase tracking-widest rounded-full w-fit mb-3">Noticia Destacada</span>
+                            <h4 class="text-white font-black text-2xl mt-1 uppercase leading-tight italic">Especial Mushoku Tensei en SrRaid</h4>
+                            <p class="text-slate-500 text-sm mt-3 font-medium">Hemos actualizado nuestro sistema con las imágenes de la familia Greyrat. Explora toda la magia Isekai ahora.</p>
+                        </div>
                     </div>
                 </div>
             </div>
             
             <div class="space-y-6">
-                <h3 class="text-3xl font-black text-white uppercase italic tracking-tighter">Síguenos</h3>
+                <h3 class="text-3xl font-black text-white uppercase italic tracking-tighter">SrRaid Social</h3>
                 <div class="grid grid-cols-1 gap-4">
-                    <a href="#" class="flex items-center justify-between p-6 bg-[#E1306C]/10 border border-[#E1306C]/20 rounded-3xl hover:bg-[#E1306C]/20 transition group">
-                        <span class="text-white font-black uppercase text-xs tracking-widest">Instagram</span>
-                        <span class="text-[#E1306C] group-hover:scale-125 transition">📸</span>
+                    <a href="#" class="flex items-center justify-between p-7 bg-slate-900/50 border border-white/5 rounded-[2rem] hover:bg-brand/10 hover:border-brand/20 transition-all group">
+                        <span class="text-white font-black uppercase text-xs tracking-widest">Grimorio Instagram</span>
+                        <span class="text-2xl group-hover:scale-125 transition duration-500">📸</span>
                     </a>
-                    <a href="https://discord.com" target="_blank" class="flex items-center justify-between p-6 bg-[#5865F2]/10 border border-[#5865F2]/20 rounded-3xl hover:bg-[#5865F2]/20 transition group">
-                        <span class="text-white font-black uppercase text-xs tracking-widest">Discord</span>
-                        <span class="text-[#5865F2] group-hover:scale-125 transition">👾</span>
+                    <a href="https://discord.com" target="_blank" class="flex items-center justify-between p-7 bg-slate-900/50 border border-white/5 rounded-[2rem] hover:bg-brand/10 hover:border-brand/20 transition-all group">
+                        <span class="text-white font-black uppercase text-xs tracking-widest">Taberna Discord</span>
+                        <span class="text-2xl group-hover:scale-125 transition duration-500">👾</span>
                     </a>
                 </div>
             </div>
         </div>
     </section>
 
-    <footer class="bg-black pt-24 pb-12 px-6">
-        <div class="text-center">
-            <p class="text-slate-800 text-[10px] font-black uppercase tracking-[0.5em]">
-                SrRaid ANIME GLOBAL • 2026 • TODOS LOS DERECHOS RESERVADOS
+    <footer class="bg-black py-16 px-6 border-t border-white/5">
+        <div class="max-w-7xl mx-auto flex flex-col items-center gap-6">
+            <img src="assets/RoxyFoto.png" class="w-12 h-12 rounded-full grayscale hover:grayscale-0 transition duration-500">
+            <p class="text-slate-700 text-[10px] font-black uppercase tracking-[0.5em] text-center">
+                SrRaid ANIME GLOBAL • 2026 • PODER OTOMANO DESATADO
             </p>
         </div>
     </footer>
 
     <div id="anime-modal" class="fixed inset-0 z-[200] hidden items-center justify-center p-4">
         <div class="absolute inset-0 bg-dark/98 backdrop-blur-2xl" onclick="closeModal()"></div>
-        <div class="relative bg-slate-950 border border-slate-800 w-full max-w-5xl max-h-[90vh] overflow-y-auto rounded-[3rem] shadow-[0_0_100px_rgba(99,102,241,0.2)] flex flex-col md:flex-row overflow-hidden transform transition-all">
-            <button onclick="closeModal()" class="absolute top-8 right-8 z-[210] bg-white/5 backdrop-blur-md p-3 rounded-2xl hover:bg-brand transition text-white border border-white/10 group">
+        <div class="relative bg-slate-950 border border-white/5 w-full max-w-5xl max-h-[90vh] overflow-y-auto rounded-[3.5rem] shadow-[0_0_150px_rgba(99,102,241,0.15)] flex flex-col md:flex-row overflow-hidden transform transition-all duration-500">
+            <button onclick="closeModal()" class="absolute top-8 right-8 z-[210] bg-white/5 backdrop-blur-xl p-3 rounded-2xl hover:bg-brand transition text-white border border-white/10 group">
                 <svg class="w-6 h-6 group-hover:rotate-90 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
             </button>
             <div id="modal-content" class="flex flex-col md:flex-row w-full text-white"></div>
@@ -202,7 +217,7 @@
     <script type="module" src="./js/auth.js"></script>
     <script type="module" src="./js/main.js"></script>
     <script>
-        // Control del Loader (NUEVO)
+        // Control del Loader
         window.addEventListener('load', () => {
             const loader = document.getElementById('loader');
             if(loader) {
